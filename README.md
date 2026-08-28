@@ -9,4 +9,4 @@ A Chrome extension to help Sharif University students quickly highlight their ta
 3. Turn on **Developer mode** in the top right corner.
 4. Click on the **Load unpacked** button in the top left corner.
 5. Select the folder you extracted in Step 1.
-6. Open the extension from your toolbar, add your target courses and professors, and click Apply!
+6. Open the extension from your toolbar, add your target courses and professors, and click **Apply Highlights** on the [edu.sharif.ir](https://edu.sharif.ir) website, specifically on the **«دروس ارایه شده توسط دانشکده‌ها در ترم جاری»** page!
