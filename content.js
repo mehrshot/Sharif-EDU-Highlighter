@@ -24,7 +24,12 @@ function runHighlighter() {
 
   clearHighlights();
 
-  chrome.storage.sync.get(['courses', 'professors'], (data) => {
+  chrome.storage.sync.get(['courses', 'professors', 'enableHighlights', 'enableWidget'], (data) => {
+    const enableHighlights = data.enableHighlights !== false;
+    const enableWidget = data.enableWidget !== false;
+    
+    if (!enableHighlights) return;
+
     const rows = Array.from(document.querySelectorAll('tr'));
     const targetCourses = data.courses || [];
     const targetProfessors = data.professors || [];
@@ -138,42 +143,44 @@ function runHighlighter() {
           }
       }
 
-      function toPersianDigits(num) {
-          const persianDigits = ['۰', '۱', '۲', '۳', '۴', '۵', '۶', '۷', '۸', '۹'];
-          return num.toString().replace(/\d/g, x => persianDigits[x]);
-      }
+      if (enableWidget) {
+        function toPersianDigits(num) {
+            const persianDigits = ['۰', '۱', '۲', '۳', '۴', '۵', '۶', '۷', '۸', '۹'];
+            return num.toString().replace(/\d/g, x => persianDigits[x]);
+        }
 
-      let summaryDiv = document.createElement('div');
-      summaryDiv.id = 'sharif-course-summary';
-      summaryDiv.style.position = 'fixed';
-      summaryDiv.style.bottom = '20px';
-      summaryDiv.style.left = '20px';
-      summaryDiv.style.backgroundColor = '#efeee9';
-      summaryDiv.style.padding = '16px 24px';
-      summaryDiv.style.borderRadius = '8px';
-      summaryDiv.style.boxShadow = '0 6px 16px rgba(0,0,0,0.15), inset 0 1px 0 rgba(255,255,255,0.6)';
-      summaryDiv.style.border = '1px solid #a3a19c';
-      summaryDiv.style.zIndex = '9999';
-      summaryDiv.style.direction = 'rtl';
-      summaryDiv.style.fontFamily = '"Vazirmatn", "IRANSans", "B Yekan", "Yekan", Tahoma, sans-serif';
-      summaryDiv.style.color = '#333';
-      summaryDiv.style.display = 'flex';
-      summaryDiv.style.flexDirection = 'column';
-      summaryDiv.style.gap = '14px';
-      summaryDiv.style.overflow = 'hidden';
-      document.body.appendChild(summaryDiv);
-      
-      summaryDiv.innerHTML = `
-          <div style="position: absolute; top: 0; left: 0; right: 0; height: 4px; background: linear-gradient(to left, #2563eb, #38bdf8);"></div>
-          <div style="font-size: 15px; font-weight: bold; color: #444; display: flex; align-items: center; justify-content: space-between; gap: 20px; margin-top: 2px;">
-              <span>مجموع واحدهای هدف:</span>
-              <span style="color: #2563eb; font-size: 24px; font-weight: 900; line-height: 1; text-shadow: 0px 1px 1px rgba(0,0,0,0.15);">${toPersianDigits(totalUnits)}</span>
-          </div>
-          <div style="font-size: 14px; font-weight: bold; color: #666; display: flex; align-items: center; justify-content: space-between; gap: 20px;">
-              <span>دروس پیدا شده:</span>
-              <span style="color: #64748b; font-size: 19px; font-weight: 800; line-height: 1; text-shadow: 0px 1px 1px rgba(255,255,255,0.6);">${toPersianDigits(countedCourses.size)}</span>
-          </div>
-      `;
+        let summaryDiv = document.createElement('div');
+        summaryDiv.id = 'sharif-course-summary';
+        summaryDiv.style.position = 'fixed';
+        summaryDiv.style.bottom = '20px';
+        summaryDiv.style.left = '20px';
+        summaryDiv.style.backgroundColor = '#efeee9';
+        summaryDiv.style.padding = '16px 24px';
+        summaryDiv.style.borderRadius = '8px';
+        summaryDiv.style.boxShadow = '0 6px 16px rgba(0,0,0,0.15), inset 0 1px 0 rgba(255,255,255,0.6)';
+        summaryDiv.style.border = '1px solid #a3a19c';
+        summaryDiv.style.zIndex = '9999';
+        summaryDiv.style.direction = 'rtl';
+        summaryDiv.style.fontFamily = '"Vazirmatn", "IRANSans", "B Yekan", "Yekan", Tahoma, sans-serif';
+        summaryDiv.style.color = '#333';
+        summaryDiv.style.display = 'flex';
+        summaryDiv.style.flexDirection = 'column';
+        summaryDiv.style.gap = '14px';
+        summaryDiv.style.overflow = 'hidden';
+        document.body.appendChild(summaryDiv);
+        
+        summaryDiv.innerHTML = `
+            <div style="position: absolute; top: 0; left: 0; right: 0; height: 4px; background: linear-gradient(to left, #2563eb, #38bdf8);"></div>
+            <div style="font-size: 15px; font-weight: bold; color: #444; display: flex; align-items: center; justify-content: space-between; gap: 20px; margin-top: 2px;">
+                <span>مجموع واحدهای هدف:</span>
+                <span style="color: #2563eb; font-size: 24px; font-weight: 900; line-height: 1; text-shadow: 0px 1px 1px rgba(0,0,0,0.15);">${toPersianDigits(totalUnits)}</span>
+            </div>
+            <div style="font-size: 14px; font-weight: bold; color: #666; display: flex; align-items: center; justify-content: space-between; gap: 20px;">
+                <span>دروس پیدا شده:</span>
+                <span style="color: #64748b; font-size: 19px; font-weight: 800; line-height: 1; text-shadow: 0px 1px 1px rgba(255,255,255,0.6);">${toPersianDigits(countedCourses.size)}</span>
+            </div>
+        `;
+      }
     }
 
     if (targetProfessors.length > 0) {
