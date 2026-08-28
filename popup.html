@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="header">
+    <span class="title">SHARIF EDU HIGHLIGHTER</span>
+    <span class="status"><span class="dot"></span> READY</span>
+  </div>
+
+  <div class="section">
+    <label>TARGET COURSES <span class="badge yellow">YEL</span></label>
+    <textarea id="courseCodes" spellcheck="false" placeholder="25002, 25031..."></textarea>
+  </div>
+  
+  <div class="section">
+    <label>TARGET PROFESSORS <span class="badge red">RED</span></label>
+    <textarea id="professors" spellcheck="false" placeholder="احمدی, کمالی..."></textarea>
+  </div>
+
+  <div class="actions">
+    <button id="saveBtn">APPLY HIGHLIGHTS</button>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

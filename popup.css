@@ -1,0 +1,153 @@
+body {
+  margin: 0;
+  padding: 0;
+  width: 320px;
+  background: #e6e5e0;
+  font-family: 'Segoe UI', Tahoma, sans-serif;
+  color: #333;
+  border: 1px solid #a3a19c;
+  border-top: 3px solid transparent;
+  border-image: linear-gradient(to right, #ffcc00, #ef5350, #2563eb) 1;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 15px;
+  border-bottom: 1px solid #c4c2bd;
+  background: #efeee9;
+}
+
+.title {
+  font-weight: 800;
+  font-size: 13px;
+  letter-spacing: 1.5px;
+  color: #444;
+}
+
+.status {
+  font-size: 10px;
+  font-weight: bold;
+  color: #777;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  background-color: #4caf50;
+  border-radius: 50%;
+  box-shadow: inset 0 1px 2px rgba(0,0,0,0.5);
+}
+
+.section {
+  padding: 15px 15px 0 15px;
+}
+
+label {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 10px;
+  font-weight: 800;
+  color: #555;
+  letter-spacing: 1px;
+  margin-bottom: 8px;
+}
+
+.badge {
+  font-size: 8px;
+  padding: 2px 5px;
+  border-radius: 3px;
+  color: #fff;
+  letter-spacing: 0.5px;
+}
+
+.badge.yellow { 
+  background-color: #ffb300; 
+}
+
+.badge.red { 
+  background-color: #ef5350; 
+}
+
+textarea {
+  width: 100%;
+  height: 80px;
+  background-color: #d8d6d0;
+  border: 1px solid #a3a19c;
+  border-top-color: #8a8883;
+  border-left-color: #8a8883;
+  box-shadow: inset 0 2px 5px rgba(0,0,0,0.15);
+  border-radius: 3px;
+  resize: vertical;
+  box-sizing: border-box;
+  padding: 10px;
+  font-size: 13px;
+  color: #222;
+  transition: all 0.2s ease;
+}
+
+#courseCodes {
+  direction: ltr;
+  text-align: left;
+  font-family: monospace;
+}
+
+#professors {
+  direction: rtl;
+  text-align: right;
+  font-family: "Vazirmatn", "IRANSans", Tahoma, sans-serif;
+}
+
+#courseCodes:focus {
+  outline: none;
+  background-color: #fffde7;
+  border-color: #ffb300;
+  box-shadow: inset 0 2px 5px rgba(0,0,0,0.1), 0 0 0 2px rgba(255, 179, 0, 0.2);
+}
+
+#professors:focus {
+  outline: none;
+  background-color: #ffebee;
+  border-color: #ef5350;
+  box-shadow: inset 0 2px 5px rgba(0,0,0,0.1), 0 0 0 2px rgba(239, 83, 80, 0.2);
+}
+
+.actions {
+  padding: 15px;
+  border-top: 1px dashed #b8b6b1;
+  margin-top: 15px;
+  background: #efeee9;
+}
+
+button {
+  width: 100%;
+  background: #2b333e;
+  border: 1px solid #1a1f26;
+  padding: 14px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 800;
+  color: #ffffff;
+  letter-spacing: 2px;
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1), inset 0 1px 0 rgba(255,255,255,0.1);
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+button:hover {
+  background: #36404d;
+  box-shadow: 0 6px 12px rgba(0,0,0,0.15), inset 0 1px 0 rgba(255,255,255,0.15);
+  transform: translateY(-1px);
+}
+
+button:active {
+  background: #1f252d;
+  box-shadow: inset 0 4px 8px rgba(0,0,0,0.4);
+  transform: translateY(1px);
+  border-top-color: #0a0c0f;
+}

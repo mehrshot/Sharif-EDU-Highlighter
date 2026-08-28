@@ -1,0 +1,26 @@
+{
+  "manifest_version": 3,
+  "name": "Sharif Course Highlighter",
+  "version": "1.0",
+  "description": "Highlights specific course codes and professors on edu.sharif.ir",
+  "permissions": ["storage", "tabs"],
+  "icons": {
+    "16": "icon128.png",
+    "48": "icon128.png",
+    "128": "icon128.png"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icon128.png",
+      "48": "icon128.png",
+      "128": "icon128.png"
+    }
+  },
+  "content_scripts": [
+    {
+      "matches": ["*://edu.sharif.ir/*"],
+      "js": ["content.js"]
+    }
+  ]
+}
