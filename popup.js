@@ -42,3 +42,8 @@ document.getElementById('saveBtn').addEventListener('click', () => {
     });
   });
 });
+
+
+document.getElementById('openEduBtn').addEventListener('click', () => {
+  chrome.tabs.create({ url: 'https://edu.sharif.ir' });
+});

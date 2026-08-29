@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "Sharif Course Highlighter",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Highlights specific course codes and professors on edu.sharif.ir",
   "permissions": ["storage", "tabs"],
   "icons": {
